@@ -5,7 +5,8 @@ import sys
 import os
 
 def get_road_network(region):
-    path_to_file = "../data/" + region + "_driving.shp"
+    data_dir = os.path.abspath("data/")
+    path_to_file = data_dir + "/" + region + "_roads.shp"
 
     if os.path.exists(path_to_file):
         print("Loading data from " + path_to_file)
@@ -23,4 +24,5 @@ def get_road_network(region):
 
         print("Saving data for future use to" + path_to_file)
         drive_net.to_file(path_to_file)
+
         return drive_net
