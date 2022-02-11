@@ -4,6 +4,7 @@ import geopandas
 import sys
 import os
 import utils
+import pandas
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
@@ -11,5 +12,6 @@ if __name__ == "__main__":
     else:
         region = sys.argv[1]
 
-        drive_net = utils.get_road_network(region)
-        print("Done")
+        nodes, edges = utils.get_graph(region)
+        print(type(nodes))
+        print(type(edges))

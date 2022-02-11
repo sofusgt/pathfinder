@@ -4,6 +4,7 @@ import geopandas
 import sys
 import os
 
+
 def get_road_network(region):
     data_dir = os.path.abspath("data/")
     path_to_file = data_dir + "/" + region + "_roads.shp"
@@ -26,3 +27,9 @@ def get_road_network(region):
         drive_net.to_file(path_to_file)
 
         return drive_net
+
+def get_graph(region):
+    fp = get_data(region, directory="data")
+    osm = OSM(fp)
+    nodes, edges = osm.get_network(network_type="driving", nodes=True)
+    return nodes, edges
