@@ -6,7 +6,7 @@ import os
 import utils
 import pandas
 import numpy as np
-import graph
+from graph import Graph
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
@@ -21,6 +21,6 @@ if __name__ == "__main__":
         print(vertices)
         print(edges)
 
-        G = graph.Graph(vertices, edges)
-        print(G.vertices[0])
+        G = Graph(vertices, edges)
+        print(G.vertices)
         
